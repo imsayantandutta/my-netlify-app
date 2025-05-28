@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp *.html dist/ && cp -r src/ dist/src && cp -r src/ dist/api",
+    "build": "vite build && cp *.html dist/ && cp -r src/ dist/src && cp -r api/ dist/api",
     "preview": "vite preview"
   },
   "devDependencies": {
