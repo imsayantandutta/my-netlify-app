@@ -1,41 +1,50 @@
-import '../css/style.css'
+import '../css/style.css';
 
-import allProducts from "../../api/all-products.json";
 import { showProductContainer } from './homeProductCards.js';
 import { showShopProductContainer, clearShopProductContainer } from './shopProductCards.js';
 import { showNewArrivalContainer } from './newArrivalProductCards.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("productTemplate")) {
-    showProductContainer(allProducts);
-  }
+  // Load the JSON dynamically with fetch
+  fetch('/api/all-products.json')
+    .then(response => response.json())
+    .then(allProducts => {
+      
+      if (document.getElementById("productTemplate")) {
+        showProductContainer(allProducts);
+      }
 
-  if (document.getElementById("shopproductTemplate")) {
-    showShopProductContainer(allProducts); // Initial render
+      if (document.getElementById("shopproductTemplate")) {
+        showShopProductContainer(allProducts); // Initial render
 
-    // Gender filter event listeners
-    document.querySelectorAll('input[name="gender"]').forEach(radio => {
-      radio.addEventListener("change", () => {
-        applyFilters();
-      });
+        // Gender filter event listeners
+        document.querySelectorAll('input[name="gender"]').forEach(radio => {
+          radio.addEventListener("change", () => {
+            applyFilters(allProducts);
+          });
+        });
+
+        // Category filter event listeners
+        const categoryCheckboxes = document.querySelectorAll('.brand-filter input[type="checkbox"]');
+        categoryCheckboxes.forEach(checkbox => {
+          checkbox.addEventListener("change", () => {
+            applyFilters(allProducts);
+          });
+        });
+      }
+
+      if (document.getElementById("newArrivalTemplate")) {
+        showNewArrivalContainer(allProducts);
+      }
+
+    })
+    .catch(err => {
+      console.error('Failed to load products JSON:', err);
     });
-
-    // Category filter event listeners
-    const categoryCheckboxes = document.querySelectorAll('.brand-filter input[type="checkbox"]');
-    categoryCheckboxes.forEach(checkbox => {
-      checkbox.addEventListener("change", () => {
-        applyFilters();
-      });
-    });
-  }
-
-  if (document.getElementById("newArrivalTemplate")) {
-    showNewArrivalContainer(allProducts);
-  }
 });
 
 // Filtering function for gender + category
-function applyFilters() {
+function applyFilters(allProducts) {
   // Get selected gender
   const selectedGenderRadio = document.querySelector('input[name="gender"]:checked');
   const selectedGender = selectedGenderRadio ? selectedGenderRadio.value.toLowerCase() : "all";
