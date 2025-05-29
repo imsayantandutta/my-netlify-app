@@ -1,4 +1,4 @@
-import '../../css/style.css'
+import '../css/style.css';
 
 import allProducts from "../../api/all-products.json";
 import { showProductContainer } from './homeProductCards.js';
