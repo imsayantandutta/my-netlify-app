@@ -1,9 +1,9 @@
 import '../css/style.css'
 
 import allProducts from "../../api/all-products.json";
-import { showProductContainer } from './homeProductCards';
-import { showShopProductContainer, clearShopProductContainer } from './shopProductCards';
-import { showNewArrivalContainer } from './newArrivalProductCards';
+import { showProductContainer } from './homeProductCards.js';
+import { showShopProductContainer, clearShopProductContainer } from './shopProductCards.js';
+import { showNewArrivalContainer } from './newArrivalProductCards.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("productTemplate")) {
