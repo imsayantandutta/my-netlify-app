@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch('/api/all-products.json')
     .then(response => response.json())
     .then(allProducts => {
-      
+      console.log('Loaded products:', allProducts); 
       if (document.getElementById("productTemplate")) {
         showProductContainer(allProducts);
       }
