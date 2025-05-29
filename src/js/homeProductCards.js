@@ -1,5 +1,5 @@
-import { addToCart } from "./addToCart";
-import { homeQuantityToggle } from "./homeQuantityToggle";
+import { addToCart } from "./addToCart.js";
+import { homeQuantityToggle } from "./homeQuantityToggle.js";
 
 export const showProductContainer = (products) => {
     if (!products) return;

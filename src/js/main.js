@@ -1,4 +1,4 @@
-import '../css/style.css';
+//import '../css/style.css';
 import { showProductContainer } from './homeProductCards.js';
 import { showShopProductContainer, clearShopProductContainer } from './shopProductCards.js';
 import { showNewArrivalContainer } from './newArrivalProductCards.js';
