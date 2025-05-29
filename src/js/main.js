@@ -3,6 +3,8 @@ import { showProductContainer } from './homeProductCards.js';
 import { showShopProductContainer, clearShopProductContainer } from './shopProductCards.js';
 import { showNewArrivalContainer } from './newArrivalProductCards.js';
 
+console.log('Products Loaded:', 'Hello');
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log('Products Loaded:', allProducts);
   fetch('/api/all-products.json')
