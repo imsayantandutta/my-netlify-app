@@ -4,6 +4,7 @@ import { showShopProductContainer, clearShopProductContainer } from './shopProdu
 import { showNewArrivalContainer } from './newArrivalProductCards.js';
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log('Products Loaded:', allProducts);
   fetch('/api/all-products.json')
     .then(response => {
       if (!response.ok) {
